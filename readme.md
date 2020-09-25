@@ -37,3 +37,14 @@ $ rosrun ros_hkkim_pck py_image_subscriber.py
 ```
 $ rosrun ros_hkkim_pck image_subscriber_viewer
 ```
+
+### 4. Ouster rosbag replay
+#### 1) Execute viewer (point cloud and intensity images): `roslaunch ouster_ros os1.launch`
+```
+roslaunch ouster_ros os1.launch replay:=true viz:=true image:=true metadata:=/home/msp/ROS_data/sample_config_file.json
+```
+#### 2) ros play and replay all
+```
+rosbag play --clock -l _2020-09-23-17-08-50.bag
+```
+
