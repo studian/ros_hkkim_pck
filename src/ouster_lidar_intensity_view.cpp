@@ -23,7 +23,7 @@ void rgb_image(const sensor_msgs::ImageConstPtr& msg) {
 //      else
 //        cv_ptr = cv_bridge::toCvShare(msg, sensor_msgs::image_encodings::MONO8);
 
-      cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+      cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::MONO8);
     }
     catch (cv_bridge::Exception& e)
     {
@@ -37,16 +37,16 @@ void rgb_image(const sensor_msgs::ImageConstPtr& msg) {
 
     cout << "received new image" << endl;
     // Update GUI Window
-    cv::imshow(OPENCV_WINDOW1, cv_ptr->image);
+    cv::imshow(OPENCV_WINDOW2, cv_ptr->image);
     cv::waitKey(50);
 }
 
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "rgb_image");
+  ros::init(argc, argv, "intensity_image");
   ros::NodeHandle nh;
   image_transport::ImageTransport it(nh);
-  image_transport::Subscriber sub = it.subscribe("cam1/color/image_raw", 1, rgb_image);
+  image_transport::Subscriber sub = it.subscribe("img_node/intensity_image", 1, rgb_image);
   ros::spin();
 }

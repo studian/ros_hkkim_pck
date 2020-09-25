@@ -187,6 +187,10 @@ add_executable(image_subscriber_viewer ${SOURCE_FILES} src/image_subscriber_view
 add_dependencies(image_subscriber_viewer ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
 target_link_libraries(image_subscriber_viewer  ${catkin_LIBRARIES} ${OpenCV_LIBS})
 
+add_executable(ouster_lidar_intensity_view ${SOURCE_FILES} src/ouster_lidar_intensity_view.cpp)
+add_dependencies(ouster_lidar_intensity_view ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
+target_link_libraries(ouster_lidar_intensity_view  ${catkin_LIBRARIES} ${OpenCV_LIBS})
+
 #add_executable(image_tr_subscriber_viewer ${SOURCE_FILES} src/image_tr_subscriber_viewer.cpp )
 #add_dependencies(image_tr_subscriber_viewer ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
 #target_link_libraries(image_tr_subscriber_viewer  ${catkin_LIBRARIES} ${OpenCV_LIBS})
